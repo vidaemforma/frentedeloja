@@ -8,7 +8,7 @@
 <script>
 'use strict';
 // Pode preencher a URL /exec aqui antes de subir ao GitHub. Não coloque senhas neste arquivo.
-const DEFAULT_API_URL = '';
+const DEFAULT_API_URL = 'https://script.google.com/macros/s/AKfycbwQyOuiGfKmdm6Nl-IAT0z4kJJYLrXL1rHqMUTQX3o204jkqw8B1l4751l55Hrbpkdvlw/exec';
 const $=id=>document.getElementById(id), money=n=>(Number(n||0)/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const rid=()=>crypto.randomUUID(), date=s=>new Date(s).toLocaleString('pt-BR'), roleName=r=>({adm:'Administrador',gerente:'Gerente de loja',caixa:'Colaborador / Caixa'}[r]||r);
 function parseMoney(v){let s=String(v??'').trim().replace(/R\$\s*/g,'');if(!s)return 0;if(!/^\d+(?:\.\d{3})*(?:,\d{1,2})?$/.test(s)&&!/^\d+(?:,\d{1,2})?$/.test(s))throw Error('Use valores como 1.234,56.');const n=Math.round(Number(s.replace(/\./g,'').replace(',','.'))*100);if(!Number.isSafeInteger(n)||n<0)throw Error('Valor inválido.');return n;}
